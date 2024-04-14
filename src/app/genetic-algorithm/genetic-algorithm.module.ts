@@ -5,6 +5,7 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { FunctionSelectorComponent } from './components/function-selector/function-selector.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { TableComponent } from './components/table/table.component';
+import { SetValuesComponent } from './components/set-values/set-values.component';
 
 
 
@@ -13,7 +14,8 @@ import { TableComponent } from './components/table/table.component';
     MainPageComponent,
     FunctionSelectorComponent,
     GraphComponent,
-    TableComponent
+    TableComponent,
+    SetValuesComponent
   ],
   imports: [
     CommonModule
