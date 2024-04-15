@@ -1,32 +1,46 @@
-<main class="w-full h-full flex-col flex justify-between space-y-5">
-  <!-- Range -->
-  <section class="w-full h-1/2 flex items-center space-x-5">
-    <p class="w-1/2 text-lg">Set your range</p>
+<!-- Range -->
+<form
+  class="w-full h-full flex-col flex justify-between space-y-5"
+  (ngSubmit)="showValues()"
+>
+  <section class="w-full h-1/3 flex items-center space-x-5">
+    <p class="w-1/2 text-lg font-semibold">Set your range</p>
 
     <input
+      [(ngModel)]="lowerLimit"
       class="w-1/4 h-full rounded-lg text-center border-4"
       placeholder="Lower limit"
       type="number"
-      name=""
+      name="lowerLimit"
       id=""
     />
     <input
+      [(ngModel)]="upperLimit"
       class="w-1/4 h-full rounded-lg text-center border-4"
       placeholder="Upper limit"
       type="number"
-      name=""
+      name="upperLimit"
       id=""
     />
   </section>
   <!-- Solutions space  -->
-  <section class="w-full h-1/2 flex items-center">
+  <section class="w-full h-1/3 flex items-center">
     <p class="w-1/2 text-lg">Set your space of solutions</p>
     <input
+      [(ngModel)]="spaceOfSolutions"
       class="w-1/2 h-full rounded-lg text-center border-4"
       placeholder="Number of solutions"
       type="number"
-      name=""
+      name="space-of-solutions"
       id=""
     />
   </section>
-</main>
+  <section class="w-full h-1/3 flex items-center">
+    <button
+      class="w-full h-full font-semibold text-white bg-blue-500 rounded-xl"
+      type="submit"
+    >
+      Generate!
+    </button>
+  </section>
+</form>

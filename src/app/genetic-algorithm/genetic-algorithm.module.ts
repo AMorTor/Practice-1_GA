@@ -7,7 +7,7 @@ import { GraphComponent } from './components/graph/graph.component';
 import { TableComponent } from './components/table/table.component';
 import { SetValuesComponent } from './components/set-values/set-values.component';
 
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { SetValuesComponent } from './components/set-values/set-values.component
     SetValuesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports:[MainPageComponent]
 })
