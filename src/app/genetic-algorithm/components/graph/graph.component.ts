@@ -1,14 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { GrapFunctionService } from '../../services/grap-function.service';
 
 @Component({
   selector: 'genetic-algorithm-graph',
   templateUrl: './graph.component.html',
 })
 export class GraphComponent {
-  @Input()
-  dataFuction: Number[] = [];
-
-  view: [number, number] = [700, 300];
   // options
   legend: boolean = true;
   showLabels: boolean = true;
@@ -19,12 +16,16 @@ export class GraphComponent {
   showXAxisLabel: boolean = true;
   xAxisLabel: string = 'Year';
   yAxisLabel: string = 'Population';
-  timeline: boolean = true;
+  timeline: boolean = false;
 
   colorScheme = 'cool';
 
-  constructor() {
-    Object.assign(this, this.multi);
+  constructor(private graphFunction: GrapFunctionService) {
+    Object.assign(this, this.graphFunction.data);
+    this.graphFunction.generateData();
+  }
+  get data() {
+    return this.graphFunction.data;
   }
 
   onSelect(data: any): void {
@@ -38,55 +39,4 @@ export class GraphComponent {
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
-
-  multi = [
-    {
-      name: 'USA',
-      series: [
-        {
-          name: '1990',
-          value: 250000000,
-        },
-        {
-          name: '2010',
-          value: 309000000,
-        },
-        {
-          name: '2011',
-          value: 311000000,
-        },
-      ],
-    },
-
-    {
-      name: 'France',
-      series: [
-        {
-          name: '1990',
-          value: 58000000,
-        },
-        {
-          name: '2010',
-          value: 50000020,
-        },
-        {
-          name: '2011',
-          value: 58000000,
-        },
-      ],
-    },
-    {
-      name: 'UK',
-      series: [
-        {
-          name: '1990',
-          value: 57000000,
-        },
-        {
-          name: '2010',
-          value: 62000000,
-        },
-      ],
-    },
-  ];
 }

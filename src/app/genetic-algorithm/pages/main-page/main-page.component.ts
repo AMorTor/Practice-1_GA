@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { NumberGenetarationService } from '../../services/number-generation/number-genetaration.service';
+import { GrapFunctionService } from '../../services/grap-function.service';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
 })
 export class MainPageComponent {
-  constructor(private numberGeneration: NumberGenetarationService) {}
+  constructor(private graphFunction: GrapFunctionService) {}
 
   public onNewData(): void {
     // ...
