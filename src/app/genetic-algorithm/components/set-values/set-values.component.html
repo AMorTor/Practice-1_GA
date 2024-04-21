@@ -4,24 +4,43 @@
 >
   <!-- Function and mode selector -->
   <section class="w-full h-1/4 flex space-x-5">
-    <select class="w-2/3 h-full border-4 rounded-lg" name="" id="">
-      <option value="">x<sup>2</sup></option>
-      <option value="">Select a function</option>
-      <option value="">Select a function</option>
+    <!-- Function -->
+    <select
+      [(ngModel)]="formData.selectedFunction.value"
+      class="w-2/3 h-full border-4 rounded-lg"
+      name="function"
+      id=""
+    >
+      <option *ngFor="let function of functions" [value]="function.value">
+        {{ function.displayedValue }}
+      </option>
     </select>
-    <select class="w-1/3 h-full border-4 rounded-lg" name="" id=""></select>
+
+    <!-- Generation mode  -->
+    <select
+      [(ngModel)]="formData.selectedGenerationMode.value"
+      class="w-1/3 h-full border-4 rounded-lg"
+      name="mode"
+      id=""
+    >
+      <option *ngFor="let mode of generationMode" [value]="mode.value">
+        {{ mode.displayedValue }}
+      </option>
+    </select>
   </section>
 
   <!-- Range (upper and lower limit) -->
   <section class="w-full h-1/4 flex items-center space-x-5">
     <span class="w-1/3">Set your range</span>
     <input
+      [(ngModel)]="formData.lowerLimit"
       class="w-1/3 h-full text-center border-4 rounded-lg"
       type="number"
       name="lowerLimit"
       id=""
     />
     <input
+      [(ngModel)]="formData.upperLimit"
       class="w-1/3 h-full text-center border-4 rounded-lg"
       type="number"
       name="upperLimit"
@@ -33,9 +52,10 @@
   <section class="w-full h-1/4 flex items-center space-x-2">
     <span class="w-1/3">Set your range</span>
     <input
+      [(ngModel)]="formData.populationSize"
       class="w-2/3 h-full text-center border-4 rounded-lg"
       type="number"
-      name="spaceOfSolutions"
+      name="populationSize"
       id=""
     />
   </section>
