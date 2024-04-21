@@ -4,6 +4,4 @@ import { Component } from '@angular/core';
   selector: 'genetic-algorithm-table',
   templateUrl: './table.component.html',
 })
-export class TableComponent {
-
-}
+export class TableComponent {}

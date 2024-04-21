@@ -1,19 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { NumberGenetarationService } from '../../services/number-generation/number-genetaration.service';
 
 @Component({
   selector: 'genetic-algorithm-set-values',
   templateUrl: './set-values.component.html',
-
 })
 export class SetValuesComponent {
-  public lowerLimit: number = 0;
-  public upperLimit: number = 0;
-  public spaceOfSolutions:number = 0;
+  @Output()
+  public onNewNumber: EventEmitter<any> = new EventEmitter();
 
-  public showValues(): void {
-    console.log(this.lowerLimit);
-    console.log(this.upperLimit);
-    console.log(this.spaceOfSolutions);
-  }
-
+  emitData() {}
 }

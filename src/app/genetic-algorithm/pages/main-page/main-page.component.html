@@ -1,30 +1,20 @@
 <main class="w-full h-screen bg-neutral-900 flex items-center justify-center">
   <section class="w-[95%] h-[95%] flex space-x-5">
-    <!-- Values - [range and the function selected] -->
-    <div class="w-1/3 h-full space-y-5">
-      <div
-        class="w-full h-[25%] bg-sky-300 border-[3px] border-sky-600 rounded-lg p-5 flex-col flex justify-between space-y-5"
+    <!-- Values and table -->
+    <div class="w-1/3 h-full flex-col flex justify-between space-y-5">
+      <!-- Values -->
+      <section
+        class="w-full h-1/3 bg-blue-200 border-4 border-blue-400 rounded-xl p-5"
       >
-        <!-- Function and mode selector -->
-        <div class="w-full h-1/4 flex justify-between space-x-5">
-          <div class="w-3/4">
-            <genetic-algorithm-function-selector></genetic-algorithm-function-selector>
-          </div>
-          <div class="w-1/4">
-            <genetic-algorithm-function-selector></genetic-algorithm-function-selector>
-          </div>
-        </div>
-        <!-- Range  -->
-        <div class="w-full h-3/4">
-          <genetic-algorithm-set-values></genetic-algorithm-set-values>
-        </div>
-      </div>
+        <genetic-algorithm-set-values></genetic-algorithm-set-values>
+      </section>
+
       <!-- Table -->
-      <div
-        class="w-full h-[73%] bg-emerald-200 border-[4px] border-emerald-600 rounded-lg p-5"
+      <section
+        class="w-full h-2/3 bg-yellow-200 border-4 border-yellow-400 rounded-xl p-5 overflow-y-auto"
       >
         <genetic-algorithm-table></genetic-algorithm-table>
-      </div>
+      </section>
     </div>
 
     <!-- Chart -->
