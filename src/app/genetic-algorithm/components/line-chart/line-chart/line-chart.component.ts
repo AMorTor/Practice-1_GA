@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD:src/app/genetic-algorithm/components/line-chart/line-chart/line-chart.component.ts
 import { FormData } from '../../../interfaces/formData.interface';
 import { GrapFunctionService } from '../../../services/graph-function/grap-function.service';
+=======
+import { GrapFunctionService } from '../../services/graph-function/grap-function.service';
+import { EvaluatedValues } from '../../interfaces/evaluatedValues.interface.';
+>>>>>>> main:src/app/genetic-algorithm/components/graph/graph.component.ts
 
 @Component({
   selector: 'genetic-algorithm-line-chart',
@@ -21,6 +26,10 @@ export class LineChartComponent {
 
   colorScheme = 'cool';
 
+  public evaluatedValues: EvaluatedValues = {
+    values: [],
+    evaluation: [],
+  };
   constructor(private graphFunction: GrapFunctionService) {
     Object.assign(this, this.graphFunction.multi);
   }
