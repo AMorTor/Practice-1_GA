@@ -8,9 +8,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let value of values.values; let i = index">
+    <tr *ngFor="let number of evaluatedValues.values; let i = index">
       <td>{{ i }}</td>
-      <td>{{ value }}</td>
+      <td>{{ number }}</td>
+      <td>{{ number.toString(2) }}</td>
+      <td>{{ number.toString(2) }}</td>
     </tr>
   </tbody>
 </table>

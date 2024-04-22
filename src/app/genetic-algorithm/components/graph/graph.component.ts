@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GrapFunctionService } from '../../services/graph-function/grap-function.service';
+import { EvaluatedValues } from '../../interfaces/evaluatedValues.interface.';
 
 @Component({
   selector: 'genetic-algorithm-graph',
@@ -20,6 +21,10 @@ export class GraphComponent {
 
   colorScheme = 'cool';
 
+  public evaluatedValues: EvaluatedValues = {
+    values: [],
+    evaluation: [],
+  };
   constructor(private graphFunction: GrapFunctionService) {
     Object.assign(this, this.graphFunction.data);
     this.graphFunction.generateData();

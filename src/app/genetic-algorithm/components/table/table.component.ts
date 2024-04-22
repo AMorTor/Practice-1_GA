@@ -8,5 +8,10 @@ import { EvaluatedValues } from '../../interfaces/evaluatedValues.interface.';
 export class TableComponent {
   // Properties
   @Input()
-  public values: EvaluatedValues = { values: [], evaluation: [] };
+  public evaluatedValues: EvaluatedValues = {
+    values: [],
+    evaluation: [],
+  };
+
+  public generateTableData(): void {}
 }
