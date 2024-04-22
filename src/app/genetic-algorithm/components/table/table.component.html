@@ -8,9 +8,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let value of values.values; let i = index">
+    <tr
+      *ngFor="let number of geneticNumbers; let i = index"
+      class="border-b-2 border-gray-500/30"
+    >
       <td>{{ i }}</td>
-      <td>{{ value }}</td>
+      <td>{{ number.decimal }}</td>
+      <td>{{ number.binary }}</td>
+      <td>{{ number.gray }}</td>
     </tr>
   </tbody>
 </table>

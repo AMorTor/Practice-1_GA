@@ -2,7 +2,7 @@ export interface graphData {
   name: string;
   series: [
     {
-      name: number;
+      name: string;
       value: number;
     }
   ];

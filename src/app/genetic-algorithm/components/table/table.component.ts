@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { EvaluatedValues } from '../../interfaces/evaluatedValues.interface.';
+import { GeneticNumber } from '../../interfaces/geneticNumber.interface';
+import { GeneticNumberService } from '../../services/genetic-number/genetic-number.service';
 
 @Component({
   selector: 'genetic-algorithm-table',
@@ -8,5 +9,11 @@ import { EvaluatedValues } from '../../interfaces/evaluatedValues.interface.';
 export class TableComponent {
   // Properties
   @Input()
-  public values: EvaluatedValues = { values: [], evaluation: [] };
+  public randomNumbers: number[] = [];
+
+  constructor(private geneticNumber: GeneticNumberService) {}
+
+  get geneticNumbers(): GeneticNumber[] {
+    return this.geneticNumber.geneticNumbers;
+  }
 }

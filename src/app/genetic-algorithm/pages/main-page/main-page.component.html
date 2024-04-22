@@ -16,7 +16,7 @@
         class="w-full h-2/3 bg-yellow-200 border-4 border-yellow-400 rounded-xl p-5 overflow-y-auto"
       >
         <genetic-algorithm-table
-          [values]="functionValues"
+          [randomNumbers]="randomNumbers"
         ></genetic-algorithm-table>
       </section>
     </div>
@@ -25,7 +25,11 @@
     <div
       class="w-2/3 h-full bg-purple-300 border-4 border-purple-400 rounded-lg p-5"
     >
-      <genetic-algorithm-graph></genetic-algorithm-graph>
+      <div class="w-full h-3/4 bg-slate-50 flex justify-center items-center">
+        <div class="w-full p-10">
+          <genetic-algorithm-line-chart></genetic-algorithm-line-chart>
+        </div>
+      </div>
     </div>
   </section>
 </main>

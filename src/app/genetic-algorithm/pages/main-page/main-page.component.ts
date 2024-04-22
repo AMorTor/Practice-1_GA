@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { FormData } from '../../interfaces/formData.interface';
 
 import { GrapFunctionService } from '../../services/graph-function/grap-function.service';
-import { GenerateValuesService } from '../../services/generate-values/generate-values.service';
-import { EvaluatedValues } from '../../interfaces/evaluatedValues.interface.';
+import { RandomNumbersService } from '../../services/random-numbers/random-numbers.service';
+import { GeneticNumberService } from '../../services/genetic-number/genetic-number.service';
 
 @Component({
   selector: 'app-main-page',
@@ -11,16 +11,25 @@ import { EvaluatedValues } from '../../interfaces/evaluatedValues.interface.';
 })
 export class MainPageComponent {
   // properties
-  public functionValues: EvaluatedValues = { values: [], evaluation: [] };
+  public randomNumbers: number[] = [];
+  public multi = {
+    name: '',
+    series: [{ name: '0', value: 0 }],
+  };
 
   constructor(
-    private generatedValues: GenerateValuesService,
-    private graphFunction: GrapFunctionService
+    private randomized: RandomNumbersService,
+    private graphFunction: GrapFunctionService,
+    private geneticNumber: GeneticNumberService
   ) {}
   // Properties
   public onNewFormData(formData: FormData): void {
-    this.generatedValues.evaluateFunction(formData);
-    this.functionValues = this.generatedValues.evaluatedValues;
-    console.log(this.functionValues);
+    this.randomNumbers = this.randomized.generateRandomNumbers(formData);
+    this.geneticNumber.generateNumbers(this.randomNumbers);
+    this.graphFunction.evaluateFunction(formData, this.randomNumbers);
+    this.graphFunction.multi = [...this.graphFunction.multi];
+    console.table(this.graphFunction.multi);
   }
 }
+
+// this.graphFunction.multi = [...this.graphFunction.multi];

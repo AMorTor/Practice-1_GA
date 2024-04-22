@@ -38,8 +38,14 @@ export class SetValuesComponent {
   ];
 
   public formData: FormData = {
-    selectedFunction: { value: '', displayedValue: '' },
-    selectedGenerationMode: { value: '', displayedValue: '' },
+    selectedFunction: {
+      value: 'Default value',
+      displayedValue: 'Select a function',
+    },
+    selectedGenerationMode: {
+      value: 'Default value',
+      displayedValue: 'Select a mode',
+    },
     upperLimit: 100,
     lowerLimit: 0,
     populationSize: 10,
