@@ -40,9 +40,9 @@ export class SetValuesComponent {
   public formData: FormData = {
     selectedFunction: { value: '', displayedValue: '' },
     selectedGenerationMode: { value: '', displayedValue: '' },
-    upperLimit: 0,
+    upperLimit: 100,
     lowerLimit: 0,
-    populationSize: 0,
+    populationSize: 10,
   };
 
   emitData() {

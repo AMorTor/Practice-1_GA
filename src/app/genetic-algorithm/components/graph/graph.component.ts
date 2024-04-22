@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GrapFunctionService } from '../../services/grap-function.service';
+import { GrapFunctionService } from '../../services/graph-function/grap-function.service';
 
 @Component({
   selector: 'genetic-algorithm-graph',
