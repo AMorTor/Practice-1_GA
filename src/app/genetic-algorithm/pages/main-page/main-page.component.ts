@@ -16,6 +16,7 @@ export class MainPageComponent {
     name: '',
     series: [{ name: '0', value: 0 }],
   };
+  public maxMinValues: number[] = [];
 
   constructor(
     private randomized: RandomNumbersService,
@@ -27,8 +28,11 @@ export class MainPageComponent {
     this.randomNumbers = this.randomized.generateRandomNumbers(formData);
     this.geneticNumber.generateNumbers(this.randomNumbers);
     this.graphFunction.evaluateFunction(formData, this.randomNumbers);
+    this.updateData();
+  }
+
+  public updateData(): void {
     this.graphFunction.multi = [...this.graphFunction.multi];
-    console.table(this.graphFunction.multi);
   }
 }
 

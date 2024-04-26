@@ -27,7 +27,7 @@ export class SetValuesComponent {
     },
     {
       value: 'Function 3',
-      displayedValue: '1/x',
+      displayedValue: '(x)^(1/2)',
     },
   ];
 

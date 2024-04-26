@@ -21,6 +21,12 @@ export class GrapFunctionService {
     },
   ];
 
+  public maxMinValues: { function: string; max: number; min: number } = {
+    function: '',
+    max: 0,
+    min: 0,
+  };
+
   public evaluateFunction(formData: FormData, randomNumbers: number[]) {
     switch (formData.selectedFunction.value) {
       case 'Function 1':
@@ -41,40 +47,85 @@ export class GrapFunctionService {
 
         break;
       default:
+        this.multi = [
+          { name: 'function no selected', series: [{ name: '0', value: 0 }] },
+        ];
         break;
     }
   }
 
   public generateFunction1(randomNumbers: number[]) {
     this.multi[0].name = 'Function 1';
+    let maxValue = -Infinity;
+    let minValue = Infinity;
+
     for (let i = 0; i < randomNumbers.length; i++) {
+      const value = Math.pow(randomNumbers[i], 2);
       this.multi[0].series.push({
         name: i.toString(),
-        value: Math.pow(randomNumbers[i], 2),
+        value: value,
       });
+
+      // Actualizar el valor máximo y mínimo
+      if (value > maxValue) {
+        maxValue = value;
+      }
+      if (value < minValue) {
+        minValue = value;
+      }
     }
+
+    console.log('Max Value Function 1:', maxValue);
+    console.log('Min Value Function 1:', minValue);
   }
 
   public generateFunction2(randomNumbers: number[]) {
+    let maxValue = -Infinity;
+    let minValue = Infinity;
     this.multi[1].name = 'Function 2';
+
     for (let i = 0; i < randomNumbers.length; i++) {
+      const value = Math.pow(randomNumbers[i], 2);
       this.multi[1].series.push({
         name: i.toString(),
-        value: Math.abs(
-          (randomNumbers[i] - 5) / 2 + Math.sin(randomNumbers[i])
-        ),
+        value: value,
       });
-      console.log(this.multi[1].series[i]);
+
+      // Actualizar el valor máximo y mínimo
+      if (value > maxValue) {
+        maxValue = value;
+      }
+      if (value < minValue) {
+        minValue = value;
+      }
     }
+
+    console.log('Max Value Function 2:', maxValue);
+    console.log('Min Value Funtion 2:', minValue);
   }
 
   public generateFunction3(randomNumbers: number[]) {
+    let maxValue = -Infinity;
+    let minValue = Infinity;
     this.multi[2].name = 'Function 3';
+
     for (let i = 0; i < randomNumbers.length; i++) {
+      const value = Math.pow(randomNumbers[i], 1 / 2);
       this.multi[2].series.push({
         name: i.toString(),
-        value: randomNumbers[i],
+        value: value,
       });
+
+      // Actualizar el valor máximo y mínimo
+      if (value > maxValue) {
+        maxValue = value;
+      }
+      if (value < minValue) {
+        minValue = value;
+      }
     }
+
+    console.log('Max Value Function3 3:', maxValue);
+    console.log('Min Value Function3 3:', minValue);
   }
 }

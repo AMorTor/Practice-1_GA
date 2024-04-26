@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormData } from '../../../interfaces/formData.interface';
 import { GrapFunctionService } from '../../../services/graph-function/grap-function.service';
+import { graphData } from '../../../interfaces/graphData.interface';
 
 @Component({
   selector: 'genetic-algorithm-line-chart',
@@ -24,19 +25,20 @@ export class LineChartComponent {
   constructor(private graphFunction: GrapFunctionService) {
     Object.assign(this, this.graphFunction.multi);
   }
+
   get multi() {
     return this.graphFunction.multi;
   }
 
-  onSelect(data: FormData): void {
+  onSelect(data: graphData): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
 
-  onActivate(data: FormData): void {
+  onActivate(data: graphData): void {
     console.log('Activate', JSON.parse(JSON.stringify(data)));
   }
 
-  onDeactivate(data: FormData): void {
+  onDeactivate(data: graphData): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 }
